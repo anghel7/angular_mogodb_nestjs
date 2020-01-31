@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CursoRoutingModule } from './curso-routing.module';
-import { ListaCursoComponent } from './lista-curso/lista-curso.component';
-import { ItemCursoComponent } from './item-curso/item-curso.component';
+import { ListaCursoComponent } from './components/lista-curso/lista-curso.component';
+import { ItemCursoComponent } from './components/item-curso/item-curso.component';
 
 
 @NgModule({
