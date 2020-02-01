@@ -8,6 +8,8 @@ import { Curso } from '../../models';
 })
 export class ListaCursoComponent implements OnInit {
 
+  cursoSeleccionado: string = '';
+
   listaCursos: Curso[] = [
     {
       nombre: 'Angular',
@@ -29,6 +31,11 @@ export class ListaCursoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  recibirNombre(nombreCurso: string): void {
+    console.log('Recibiendo datos del componente hijo: ', nombreCurso);
+    this.cursoSeleccionado = nombreCurso;
   }
 
 }

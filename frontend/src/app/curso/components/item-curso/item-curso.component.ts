@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Curso } from '../../models';
 
 @Component({
@@ -11,9 +11,17 @@ export class ItemCursoComponent implements OnInit {
   @Input()
   cursoItem: Curso;
 
+  @Output()
+  nombreEmmitter: EventEmitter<string> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+
+  enviarNombre(nombreCurso: string): void {
+    console.log('trandondo de enviar: ', nombreCurso);
+    this.nombreEmmitter.emit(nombreCurso);
+  }
 }

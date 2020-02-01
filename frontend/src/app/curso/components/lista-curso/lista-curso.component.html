@@ -1,4 +1,9 @@
 <p>lista-curso works!</p>
+<p><b>Curso Selccionado: </b>{{ cursoSeleccionado}}</p>
 
-<app-item-curso *ngFor='let curso of listaCursos'  [cursoItem]="curso">
+
+
+<!-- <componente-crer-curso></componente-crer-curso> -->
+
+<app-item-curso *ngFor='let curso of listaCursos' [cursoItem]="curso" (nombreEmmitter)="recibirNombre($event)">
 </app-item-curso>
