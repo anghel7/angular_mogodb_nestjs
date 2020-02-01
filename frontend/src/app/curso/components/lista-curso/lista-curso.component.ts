@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Curso } from '../../models';
 
 @Component({
   selector: 'app-lista-curso',
@@ -7,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaCursoComponent implements OnInit {
 
-  listaCursos: string[] = ['JavaScript', 'Laravel', 'Php', 'Angular', 'React'];
+  listaCursos: Curso[] = [
+    {
+      nombre: 'Angular',
+      descripcion: 'Angular es un framework ........',
+      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
+    },
+    {
+      nombre: 'VueJs',
+      descripcion: 'VueJs es un framework ........',
+      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
+    },
+    {
+      nombre: 'React',
+      descripcion: 'React es un framework ........',
+      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
+    }
+  ];
 
   constructor() { }
 
