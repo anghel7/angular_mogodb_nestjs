@@ -8,14 +8,22 @@ import { MaterialModule } from '../material.module';
 import { VerCursoComponent } from './components/ver-curso/ver-curso.component';
 import { CrearCursoComponent } from './components/crear-curso/crear-curso.component';
 import { EditarCursoComponent } from './components/editar-curso/editar-curso.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [ListaCursoComponent, ItemCursoComponent, VerCursoComponent, CrearCursoComponent, EditarCursoComponent],
+  declarations: [
+    ListaCursoComponent,
+    ItemCursoComponent,
+    VerCursoComponent,
+    CrearCursoComponent,
+    EditarCursoComponent
+  ],
   imports: [
     CommonModule,
     CursoRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class CursoModule { }

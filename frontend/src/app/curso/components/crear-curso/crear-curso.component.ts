@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-curso',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearCursoComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      nombre: new FormControl('Laravel'),
+      descripcion: new FormControl(''),
+      imgUrl: new FormControl(''),
+    });
+  }
 
   ngOnInit() {
   }
