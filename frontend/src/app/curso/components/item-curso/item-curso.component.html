@@ -1,6 +1,6 @@
 <p>{{ cursoItem | json }}</p>
 <button mat-raised-button color="warn" type="button" (click)="enviarNombre(cursoItem.nombre)">Enviar</button>
-<button mat-raised-button color="primary" type="button" >Nuevo</button>
-<button mat-raised-button color="primary" type="button" >Ver</button>
-<button mat-raised-button color="primary" type="button" >Editar</button>
-<button mat-raised-button color="primary" type="button" >Eliminar</button>
+<button mat-raised-button color="primary" [routerLink]="['/cursos/crear']" type="button">Nuevo</button>
+<button mat-raised-button color="primary" type="button" [routerLink]="['/cursos/ver']">Ver</button>
+<button mat-raised-button color="primary" type="button" [routerLink]="['/cursos/editar']">Editar</button>
+<button mat-raised-button color="primary" type="button">Eliminar</button>
