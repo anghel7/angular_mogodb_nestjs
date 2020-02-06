@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { CursoHttpService } from '../../services/curso-http.service';
 
 @Component({
   selector: 'app-crear-curso',
@@ -10,7 +11,10 @@ export class CrearCursoComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+
+
+  constructor(private fb: FormBuilder, 
+    private cursoHttpService: CursoHttpService) {
     this.form = this.fb.group({
       nombre: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
       descripcion: new FormControl(''),
@@ -19,6 +23,7 @@ export class CrearCursoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cursoHttpService.test();
   }
 
   get nombre(): FormControl {
