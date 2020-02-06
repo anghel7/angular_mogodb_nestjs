@@ -1,15 +1,16 @@
 <br>
 <form [formGroup]="form">
-  <label>
-    Nombre:
-    <input type="text" formControlName="nombre" placeholder="Ingrese el nombre del curso">
-  </label><br>
-  <label>
-    Descripción:
-    <input type="text" formControlName="descripcion">
-  </label><br>
-  <label>
-    Url de la imagen:
-    <input type="text" formControlName="imgUrl">
-  </label><br>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="nombre" placeholder="Nombre">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="descripcion" placeholder="Decripcion">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" formControlName="imgUrl" placeholder="Url imagen">
+  </mat-form-field>
+
 </form>
