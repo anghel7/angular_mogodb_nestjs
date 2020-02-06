@@ -21,5 +21,7 @@
   <mat-form-field>
     <input matInput type="text" formControlName="imgUrl" placeholder="Url imagen">
   </mat-form-field>
-
+  <br>
+  <button mat-button color="primary" type="button" [disabled]="form.invalid">Crear</button>
+  <button mat-button color="warn" type="button" [routerLink]="['/cursos/lista']">Cancelar</button>
 </form>
