@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CursoHttpService } from '../../services/curso-http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-curso',
@@ -13,8 +14,11 @@ export class CrearCursoComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder,
-    private cursoHttpService: CursoHttpService) {
+  constructor(
+    private fb: FormBuilder,
+    private cursoHttpService: CursoHttpService,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       nombre: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
       descripcion: new FormControl(''),
@@ -31,6 +35,7 @@ export class CrearCursoComponent implements OnInit {
       .subscribe(
         (result) => {
           console.log('CURSO CREADO: ', result);
+          this.router.navigate(['/cursos/lista']);
         },
         (error) => {
           console.log('ERROR: ', error);

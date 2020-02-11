@@ -23,7 +23,7 @@ export class CursoHttpService {
         setTimeout(() => {
           observer.next(this.listaCursos);
           observer.complete();
-        }, 3000);
+        }, 1000);
       }
     );
     return observableLista;
