@@ -5,5 +5,7 @@
 
 <!-- <componente-crer-curso></componente-crer-curso> -->
 
-<app-item-curso *ngFor='let curso of listaCursos' [cursoItem]="curso" (nombreEmmitter)="recibirNombre($event)">
-</app-item-curso>
+<mat-list>
+  <app-item-curso *ngFor='let curso of listaCursos' [cursoItem]="curso" (nombreEmmitter)="recibirNombre($event)">
+  </app-item-curso>
+</mat-list>

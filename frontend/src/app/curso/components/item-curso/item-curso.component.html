@@ -1,6 +1,17 @@
-<p>{{ cursoItem | json }}</p>
-<button mat-raised-button color="warn" type="button" (click)="enviarNombre(cursoItem.nombre)">Enviar</button>
-<button mat-raised-button color="primary" [routerLink]="['/cursos/crear']" type="button">Nuevo</button>
-<button mat-raised-button color="primary" type="button" [routerLink]="['/cursos/ver']">Ver</button>
-<button mat-raised-button color="primary" type="button" [routerLink]="['/cursos/editar']">Editar</button>
-<button mat-raised-button color="primary" type="button">Eliminar</button>
+<mat-list-item>
+    <h4 mat-line>{{cursoItem.nombre}}</h4>
+    <p mat-line> {{cursoItem.descripcion}} </p>
+    <button mat-icon-button color="primary" type="button" (click)="enviarNombre(cursoItem.nombre)">Enviar</button>
+    <button mat-icon-button [routerLink]="['/cursos/crear']" type="button">
+        <mat-icon mat-list-icon>fiber_new</mat-icon>
+    </button>
+    <button mat-icon-button type="button" [routerLink]="['/cursos/ver']">
+        <mat-icon mat-list-icon>remove_red_eye</mat-icon>
+    </button>
+    <button mat-icon-button type="button" [routerLink]="['/cursos/editar']">
+        <mat-icon mat-list-icon>create</mat-icon>
+    </button>
+    <button mat-icon-button type="button">
+        <mat-icon mat-list-icon>delete</mat-icon>
+    </button>
+</mat-list-item>
