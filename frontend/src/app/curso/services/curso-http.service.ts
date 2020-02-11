@@ -9,7 +9,9 @@ export class CursoHttpService {
 
   listaCursos: Curso[] = [];
 
-  constructor() { }
+  constructor() {
+    this.fillCursos();
+  }
 
   test(): void {
     console.log('Testing CursohttpService');
@@ -18,12 +20,32 @@ export class CursoHttpService {
   getAllCursos(): Observable<Curso[]> {
     let observableLista: Observable<Curso[]> = Observable.create(
       (observer) => {
-        observer.next(this.listaCursos);
-        observer.complete();
+        setTimeout(() => {
+          observer.next(this.listaCursos);
+          observer.complete();
+        }, 3000);
       }
     );
-
     return observableLista;
+  }
 
+  private fillCursos(): void {
+    this.listaCursos.push({
+      nombre: 'Angular',
+      descripcion: 'Angular es un framework ........',
+      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
+    });
+
+    this.listaCursos.push({
+      nombre: 'VueJs',
+      descripcion: 'VueJs es un framework ........',
+      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
+    });
+
+    this.listaCursos.push({
+      nombre: 'React',
+      descripcion: 'React es un framework ........',
+      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
+    });
   }
 }

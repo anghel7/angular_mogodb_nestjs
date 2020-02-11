@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Curso } from '../../models';
+import { CursoHttpService } from '../../services/curso-http.service';
 
 @Component({
   selector: 'app-lista-curso',
@@ -10,27 +11,29 @@ export class ListaCursoComponent implements OnInit {
 
   cursoSeleccionado: string = '';
 
-  listaCursos: Curso[] = [
-    {
-      nombre: 'Angular',
-      descripcion: 'Angular es un framework ........',
-      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
-    },
-    {
-      nombre: 'VueJs',
-      descripcion: 'VueJs es un framework ........',
-      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
-    },
-    {
-      nombre: 'React',
-      descripcion: 'React es un framework ........',
-      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
-    }
-  ];
+  listaCursos: Curso[] = [];
 
-  constructor() { }
+  constructor(private cursoHttpService: CursoHttpService) { }
 
   ngOnInit() {
+    this.cursoHttpService.getAllCursos()
+      .subscribe(
+        // next
+        (result) => {
+          console.log('RESULT: ', result);
+          this.listaCursos = result;
+        },
+        // error
+        (error) => {
+          console.log('Ocurrio un error al recuperar la lista de cursos', error);
+
+        },
+        // complete
+        () => {
+          console.log('El observable termino e ejecutarse.');
+
+        }
+      );
   }
 
   recibirNombre(nombreCurso: string): void {
