@@ -18,7 +18,7 @@ export class CursoHttpService {
   }
 
   getAllCursos(): Observable<Curso[]> {
-    let observableLista: Observable<Curso[]> = Observable.create(
+    const observableLista: Observable<Curso[]> = Observable.create(
       (observer) => {
         setTimeout(() => {
           observer.next(this.listaCursos);
@@ -27,6 +27,21 @@ export class CursoHttpService {
       }
     );
     return observableLista;
+  }
+
+  createCruso(curso: Curso): Observable<Curso> {
+    const observableCrear: Observable<Curso> = Observable.create(
+      (observer) => {
+        if (!curso) {
+          observer.error(new Error('NO SE ACEPTAN VALORES INDEFINIDOS'));
+        } else {
+          this.listaCursos.push(curso);
+          observer.next(curso);
+        }
+        observer.complete();
+      }
+    );
+    return observableCrear;
   }
 
   private fillCursos(): void {

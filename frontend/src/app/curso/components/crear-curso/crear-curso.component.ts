@@ -13,7 +13,7 @@ export class CrearCursoComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, 
+  constructor(private fb: FormBuilder,
     private cursoHttpService: CursoHttpService) {
     this.form = this.fb.group({
       nombre: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
@@ -24,6 +24,18 @@ export class CrearCursoComponent implements OnInit {
 
   ngOnInit() {
     this.cursoHttpService.test();
+  }
+
+  crearCurso(): void {
+    this.cursoHttpService.createCruso(this.form.value)
+      .subscribe(
+        (result) => {
+          console.log('CURSO CREADO: ', result);
+        },
+        (error) => {
+          console.log('ERROR: ', error);
+        }
+      );
   }
 
   get nombre(): FormControl {
