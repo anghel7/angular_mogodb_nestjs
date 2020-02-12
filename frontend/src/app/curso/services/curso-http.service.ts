@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Curso } from '../models';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+
+const API_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -9,58 +13,17 @@ export class CursoHttpService {
 
   listaCursos: Curso[] = [];
 
-  constructor() {
-    this.fillCursos();
-  }
+  constructor(private http: HttpClient) { }
 
   test(): void {
     console.log('Testing CursohttpService');
   }
 
   getAllCursos(): Observable<Curso[]> {
-    const observableLista: Observable<Curso[]> = Observable.create(
-      (observer) => {
-        setTimeout(() => {
-          observer.next(this.listaCursos);
-          observer.complete();
-        }, 1000);
-      }
-    );
-    return observableLista;
+    return this.http.get<Curso[]>(`${API_URL}/courses`);
   }
 
   createCruso(curso: Curso): Observable<Curso> {
-    const observableCrear: Observable<Curso> = Observable.create(
-      (observer) => {
-        if (!curso) {
-          observer.error(new Error('NO SE ACEPTAN VALORES INDEFINIDOS'));
-        } else {
-          this.listaCursos.push(curso);
-          observer.next(curso);
-        }
-        observer.complete();
-      }
-    );
-    return observableCrear;
-  }
-
-  private fillCursos(): void {
-    this.listaCursos.push({
-      nombre: 'Angular',
-      descripcion: 'Angular es un framework ........',
-      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
-    });
-
-    this.listaCursos.push({
-      nombre: 'VueJs',
-      descripcion: 'VueJs es un framework ........',
-      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
-    });
-
-    this.listaCursos.push({
-      nombre: 'React',
-      descripcion: 'React es un framework ........',
-      imgUrl: 'https://angular.io/assets/images/logos/angular/angular.svg'
-    });
+    return this.http.post<Curso>(`${API_URL}/courses`, curso);
   }
 }

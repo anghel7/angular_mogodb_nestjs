@@ -23,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CursoRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class CursoModule { }
