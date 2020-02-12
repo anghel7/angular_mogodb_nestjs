@@ -12,8 +12,6 @@ export class CrearCursoComponent implements OnInit {
 
   form: FormGroup;
 
-
-
   constructor(
     private fb: FormBuilder,
     private cursoHttpService: CursoHttpService,
