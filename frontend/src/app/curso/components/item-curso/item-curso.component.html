@@ -5,10 +5,10 @@
     <button mat-icon-button [routerLink]="['/cursos/crear']" type="button">
         <mat-icon mat-list-icon>fiber_new</mat-icon>
     </button>
-    <button mat-icon-button type="button" [routerLink]="['/cursos/ver']">
+    <button mat-icon-button type="button" [routerLink]="['/cursos/ver/', cursoItem.id]">
         <mat-icon mat-list-icon>remove_red_eye</mat-icon>
     </button>
-    <button mat-icon-button type="button" [routerLink]="['/cursos/editar']">
+    <button mat-icon-button type="button" [routerLink]="['/cursos/editar/']">
         <mat-icon mat-list-icon>create</mat-icon>
     </button>
     <button mat-icon-button type="button">

@@ -16,7 +16,7 @@ const routes: Routes = [
     component: EditarCursoComponent
   },
   {
-    path: 'ver',
+    path: 'ver/:id',
     component: VerCursoComponent
   },
   {

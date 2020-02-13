@@ -11,8 +11,6 @@ const API_URL = environment.apiUrl;
 })
 export class CursoHttpService {
 
-  listaCursos: Curso[] = [];
-
   constructor(private http: HttpClient) { }
 
   test(): void {
@@ -25,5 +23,9 @@ export class CursoHttpService {
 
   createCruso(curso: Curso): Observable<Curso> {
     return this.http.post<Curso>(`${API_URL}/courses`, curso);
+  }
+
+  getCursoById(id: string): Observable<Curso> {
+    return this.http.get<Curso>(`${API_URL}/courses/${id}`);
   }
 }

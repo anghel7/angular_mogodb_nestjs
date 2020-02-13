@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:'https://academy-curso-angular.herokuapp.com/api'
-  // apiUrl:'http://localhost:8080/api/'
+  apiUrl: 'http://localhost:8080/api'
 };
 
 /*
