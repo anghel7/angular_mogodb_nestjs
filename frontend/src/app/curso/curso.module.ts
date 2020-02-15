@@ -9,6 +9,7 @@ import { VerCursoComponent } from './components/ver-curso/ver-curso.component';
 import { CrearCursoComponent } from './components/crear-curso/crear-curso.component';
 import { EditarCursoComponent } from './components/editar-curso/editar-curso.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HiglightDirective } from './directives/higlight.directive';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ItemCursoComponent,
     VerCursoComponent,
     CrearCursoComponent,
-    EditarCursoComponent
+    EditarCursoComponent,
+    HiglightDirective
   ],
   imports: [
     CommonModule,
