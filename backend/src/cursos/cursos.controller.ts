@@ -15,9 +15,9 @@ export class CursosController {
     return this.cursosService.createCurso(createCursoDTO);
   }
 
-  @Put()
-  updateCurso(@Param('id') id: string, @Body() updateCursoDTO: UpdateCursoDto): string {
-    return "updateCurso Works";
+  @Put(':id')
+  updateCurso(@Param('id') id: string, @Body() updateCursoDTO: UpdateCursoDto): Observable<Curso> {
+    return this.cursosService.updateCursoById(id, updateCursoDTO);
   }
 
   @Delete(':id')
