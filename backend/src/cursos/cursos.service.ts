@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Curso } from './interfaces/curso.interface';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeAll } from 'rxjs/operators';
 import { CreateCursoDto } from './dto/create-curso.dto';
 /* Import for Mongoose */
 import { Model } from 'mongoose';
@@ -19,15 +19,15 @@ export class CursosService {
   createCurso(createCursoDto: CreateCursoDto): Observable<Curso> {
     const createdCurso = new this.cursoModel(createCursoDto);
     return of(createdCurso.save())
-      .pipe(map(result => {
-        console.log('Debugin result: ', result);
-        // const resulMapped: Curso = {
-        //   id: result._id,
-        //   nombre: result.nombre,
-        //   descripcion: result.descripcion,
-        //   imgUrl: result.imgUrl
-        // };
-        return result as Curso;
+      .pipe(mergeAll(), map(result => {
+        const a = result as any;
+        const resulMapped: Curso = {
+          id: a._id,
+          nombre: a.nombre,
+          descripcion: a.descripcion,
+          imgUrl: a.imgUrl
+        };
+        return resulMapped;
       }));
   }
 
